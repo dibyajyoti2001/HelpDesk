@@ -14,6 +14,8 @@ export async function generateStaticParams() {
 }
 
 async function getTicket(id) {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   // imitate delay
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
