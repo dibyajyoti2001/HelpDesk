@@ -4,12 +4,11 @@ export const dynamicParams = true; // default val = true
 
 export async function generateStaticParams() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-  const res = await fetch(`${apiUrl}`);
-
+  const res = await fetch(`${apiUrl}/tickets`);
   const tickets = await res.json();
 
   return tickets.map((ticket) => ({
-    id: ticket.id,
+    id: ticket.id.toString(),
   }));
 }
 
